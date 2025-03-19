@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -90,20 +91,51 @@ namespace HotelManager
 
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
-            if (txbAddress.Text != String.Empty && txbPhoneNumber.Text!=String.Empty && cbSex.Text!=string.Empty && dpkDateOfBirth.Value<DateTime.Now.Date)
+            if (string.IsNullOrWhiteSpace(txbAddress.Text) ||
+                string.IsNullOrWhiteSpace(txbPhoneNumber.Text) ||
+                string.IsNullOrWhiteSpace(cbSex.Text) ||
+                dpkDateOfBirth.Value >= DateTime.Now.Date)
             {
-                if (AccountDAO.Instance.IsIdCardExists(txbIDCard.Text))
-                {
-                    UpdateInfo(txbUserName.Text, txbAddress.Text, int.Parse(txbPhoneNumber.Text), txbIDCard.Text, dpkDateOfBirth.Value, cbSex.Text);
-                    MessageBox.Show( "Cập nhật thông tin cơ bản thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadProfile(txbUserName.Text);
-                }
-                else
-                    MessageBox.Show( "Thẻ căn cước/ CMND không tồn tại.\nVui lòng nhập lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Thông tin cơ bản không hợp lệ.\nVui lòng nhập lại.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
-                MessageBox.Show( "Thông tin cơ bản không hợp lệ.\nVui lòng nhập lại.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            // Kiểm tra số điện thoại hợp lệ
+            if (!int.TryParse(txbPhoneNumber.Text, out int phoneNumber))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Kiểm tra CMND/CCCD hợp lệ
+            if (!Regex.IsMatch(txbIDCard.Text, @"^\d{9}$|^\d{12}$"))
+            {
+                MessageBox.Show("Số CMND/CCCD không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Kiểm tra giới tính hợp lệ
+            if (cbSex.Text != "Nam" && cbSex.Text != "Nữ")
+            {
+                MessageBox.Show("Giới tính không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Kiểm tra CMND/CCCD có tồn tại hay không
+            if (!AccountDAO.Instance.IsIdCardExists(txbIDCard.Text))
+            {
+                MessageBox.Show("Thẻ căn cước/CMND không tồn tại.\nVui lòng nhập lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Cập nhật thông tin
+            UpdateInfo(txbUserName.Text, txbAddress.Text, phoneNumber, txbIDCard.Text, dpkDateOfBirth.Value, cbSex.Text);
+            MessageBox.Show("Cập nhật thông tin cơ bản thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Load lại hồ sơ
+            LoadProfile(txbUserName.Text);
         }
+
 
         private void txbPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -114,6 +146,11 @@ namespace HotelManager
         private void btnClose__Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void txbIDCard_OnValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

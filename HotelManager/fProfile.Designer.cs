@@ -42,6 +42,8 @@
             this.bunifuCheckbox2 = new Bunifu.Framework.UI.BunifuCheckbox();
             this.lblDisplayName = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbSex = new MetroFramework.Controls.MetroComboBox();
+            this.dpkDateOfBirth = new Bunifu.Framework.UI.BunifuDatepicker();
             this.txbIDCard = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label10 = new System.Windows.Forms.Label();
             this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -69,8 +71,6 @@
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.label2 = new System.Windows.Forms.Label();
             this.btnClose_ = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.dpkDateOfBirth = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.cbSex = new MetroFramework.Controls.MetroComboBox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -265,6 +265,41 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin cơ bản";
             // 
+            // cbSex
+            // 
+            this.cbSex.BackColor = System.Drawing.Color.White;
+            this.cbSex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbSex.FormattingEnabled = true;
+            this.cbSex.ItemHeight = 23;
+            this.cbSex.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ",
+            "Khác"});
+            this.cbSex.Location = new System.Drawing.Point(494, 54);
+            this.cbSex.Name = "cbSex";
+            this.cbSex.Size = new System.Drawing.Size(203, 29);
+            this.cbSex.Style = MetroFramework.MetroColorStyle.Green;
+            this.cbSex.TabIndex = 75;
+            this.cbSex.UseCustomBackColor = true;
+            this.cbSex.UseCustomForeColor = true;
+            this.cbSex.UseSelectable = true;
+            this.cbSex.UseStyleColors = true;
+            // 
+            // dpkDateOfBirth
+            // 
+            this.dpkDateOfBirth.BackColor = System.Drawing.Color.SeaGreen;
+            this.dpkDateOfBirth.BorderRadius = 0;
+            this.dpkDateOfBirth.ForeColor = System.Drawing.Color.White;
+            this.dpkDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpkDateOfBirth.FormatCustom = null;
+            this.dpkDateOfBirth.Location = new System.Drawing.Point(267, 111);
+            this.dpkDateOfBirth.Margin = new System.Windows.Forms.Padding(21, 34, 21, 34);
+            this.dpkDateOfBirth.Name = "dpkDateOfBirth";
+            this.dpkDateOfBirth.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dpkDateOfBirth.Size = new System.Drawing.Size(202, 29);
+            this.dpkDateOfBirth.TabIndex = 74;
+            this.dpkDateOfBirth.Value = new System.DateTime(2018, 2, 23, 23, 29, 57, 962);
+            // 
             // txbIDCard
             // 
             this.txbIDCard.BorderColorFocused = System.Drawing.Color.SeaGreen;
@@ -281,6 +316,7 @@
             this.txbIDCard.Size = new System.Drawing.Size(203, 29);
             this.txbIDCard.TabIndex = 70;
             this.txbIDCard.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txbIDCard.OnValueChanged += new System.EventHandler(this.txbIDCard_OnValueChanged);
             // 
             // label10
             // 
@@ -668,41 +704,6 @@
             this.btnClose_.TabIndex = 59;
             this.btnClose_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnClose_.Click += new System.EventHandler(this.btnClose__Click);
-            // 
-            // dpkDateOfBirth
-            // 
-            this.dpkDateOfBirth.BackColor = System.Drawing.Color.SeaGreen;
-            this.dpkDateOfBirth.BorderRadius = 0;
-            this.dpkDateOfBirth.ForeColor = System.Drawing.Color.White;
-            this.dpkDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpkDateOfBirth.FormatCustom = null;
-            this.dpkDateOfBirth.Location = new System.Drawing.Point(267, 111);
-            this.dpkDateOfBirth.Margin = new System.Windows.Forms.Padding(21, 34, 21, 34);
-            this.dpkDateOfBirth.Name = "dpkDateOfBirth";
-            this.dpkDateOfBirth.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dpkDateOfBirth.Size = new System.Drawing.Size(202, 29);
-            this.dpkDateOfBirth.TabIndex = 74;
-            this.dpkDateOfBirth.Value = new System.DateTime(2018, 2, 23, 23, 29, 57, 962);
-            // 
-            // cbSex
-            // 
-            this.cbSex.BackColor = System.Drawing.Color.White;
-            this.cbSex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbSex.FormattingEnabled = true;
-            this.cbSex.ItemHeight = 23;
-            this.cbSex.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ",
-            "Khác"});
-            this.cbSex.Location = new System.Drawing.Point(494, 54);
-            this.cbSex.Name = "cbSex";
-            this.cbSex.Size = new System.Drawing.Size(203, 29);
-            this.cbSex.Style = MetroFramework.MetroColorStyle.Green;
-            this.cbSex.TabIndex = 75;
-            this.cbSex.UseCustomBackColor = true;
-            this.cbSex.UseCustomForeColor = true;
-            this.cbSex.UseSelectable = true;
-            this.cbSex.UseStyleColors = true;
             // 
             // fProfile
             // 
