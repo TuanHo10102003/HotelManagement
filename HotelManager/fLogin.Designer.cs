@@ -100,7 +100,7 @@
             this.txbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbUserName.isPassword = false;
             this.txbUserName.Location = new System.Drawing.Point(443, 119);
-            this.txbUserName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txbUserName.Margin = new System.Windows.Forms.Padding(5);
             this.txbUserName.Name = "txbUserName";
             this.txbUserName.Size = new System.Drawing.Size(493, 36);
             this.txbUserName.TabIndex = 0;
@@ -117,7 +117,7 @@
             this.txbPassWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbPassWord.isPassword = true;
             this.txbPassWord.Location = new System.Drawing.Point(443, 212);
-            this.txbPassWord.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txbPassWord.Margin = new System.Windows.Forms.Padding(5);
             this.txbPassWord.Name = "txbPassWord";
             this.txbPassWord.Size = new System.Drawing.Size(493, 36);
             this.txbPassWord.TabIndex = 1;
@@ -130,7 +130,7 @@
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.bunifuSeparator1.LineThickness = 1;
             this.bunifuSeparator1.Location = new System.Drawing.Point(443, 71);
-            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(5);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(493, 12);
             this.bunifuSeparator1.TabIndex = 28;
@@ -143,7 +143,7 @@
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.bunifuSeparator2.LineThickness = 1;
             this.bunifuSeparator2.Location = new System.Drawing.Point(443, 271);
-            this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(5);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
             this.bunifuSeparator2.Size = new System.Drawing.Size(493, 12);
             this.bunifuSeparator2.TabIndex = 30;
@@ -183,7 +183,7 @@
             this.btnLogin.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.btnLogin.ActiveForecolor = System.Drawing.Color.White;
             this.btnLogin.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnLogin.BackColor = System.Drawing.Color.White;
+            this.btnLogin.BackColor = System.Drawing.SystemColors.Window;
             this.btnLogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogin.BackgroundImage")));
             this.btnLogin.ButtonText = "Đăng Nhập";
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -249,7 +249,7 @@
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";

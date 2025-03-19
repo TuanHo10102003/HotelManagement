@@ -356,5 +356,10 @@ namespace HotelManager
             LoadFullCustomer(GetFullCustomer());
         }
         #endregion
+
+        private void datepickerDateOfBirth_onValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

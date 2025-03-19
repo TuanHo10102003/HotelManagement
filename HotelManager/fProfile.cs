@@ -54,6 +54,7 @@ namespace HotelManager
         private void btnBookRoom_Click(object sender, EventArgs e)
         {
             if(txbDisplayName.Text!=String.Empty)
+
             {
                 UpdateDisplayName(txbUserName.Text, txbDisplayName.Text);
                 MessageBox.Show( "Cập nhật thông tin tài khoản thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -65,7 +66,7 @@ namespace HotelManager
 
         private void bunifuThinButton22_Click(object sender, EventArgs e)
         {
-            if (AccountDAO.Instance.HashPass(txbPass.Text) ==Password&&txbNewPass.Text!=String.Empty&&txbReNewPass.Text!=String.Empty)
+            if (AccountDAO.Instance.HashPass(txbPass.Text) ==Password && txbNewPass.Text!=String.Empty && txbReNewPass.Text!=String.Empty)
             {
                 if(txbNewPass.Text==txbReNewPass.Text)
                 {

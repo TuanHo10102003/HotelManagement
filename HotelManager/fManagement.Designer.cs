@@ -46,11 +46,11 @@
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.titleBookRoom = new MetroFramework.Controls.MetroTile();
             this.panelLeft = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.btnLogOut = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnNavigationPanel = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAccountProfile = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnIntroduce = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnLogOut = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panelRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.panelLeft.SuspendLayout();
@@ -334,6 +334,42 @@
             this.panelLeft.Size = new System.Drawing.Size(177, 583);
             this.panelLeft.TabIndex = 0;
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Activecolor = System.Drawing.Color.SeaGreen;
+            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnLogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLogOut.BorderRadius = 0;
+            this.btnLogOut.ButtonText = "    Đăng Xuất";
+            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogOut.DisabledColor = System.Drawing.Color.Gray;
+            this.btnLogOut.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnLogOut.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Iconimage")));
+            this.btnLogOut.Iconimage_right = null;
+            this.btnLogOut.Iconimage_right_Selected = null;
+            this.btnLogOut.Iconimage_Selected = null;
+            this.btnLogOut.IconMarginLeft = 0;
+            this.btnLogOut.IconMarginRight = 0;
+            this.btnLogOut.IconRightVisible = true;
+            this.btnLogOut.IconRightZoom = 0D;
+            this.btnLogOut.IconVisible = true;
+            this.btnLogOut.IconZoom = 50D;
+            this.btnLogOut.IsTab = false;
+            this.btnLogOut.Location = new System.Drawing.Point(0, 497);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnLogOut.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btnLogOut.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnLogOut.selected = false;
+            this.btnLogOut.Size = new System.Drawing.Size(177, 40);
+            this.btnLogOut.TabIndex = 7;
+            this.btnLogOut.Text = "    Đăng Xuất";
+            this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Textcolor = System.Drawing.Color.White;
+            this.btnLogOut.TextFont = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click_1);
+            // 
             // btnNavigationPanel
             // 
             this.btnNavigationPanel.Activecolor = System.Drawing.Color.SeaGreen;
@@ -473,41 +509,6 @@
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // btnLogOut
-            // 
-            this.btnLogOut.Activecolor = System.Drawing.Color.SeaGreen;
-            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnLogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnLogOut.BorderRadius = 0;
-            this.btnLogOut.ButtonText = "    Đăng Xuất";
-            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogOut.DisabledColor = System.Drawing.Color.Gray;
-            this.btnLogOut.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnLogOut.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Iconimage")));
-            this.btnLogOut.Iconimage_right = null;
-            this.btnLogOut.Iconimage_right_Selected = null;
-            this.btnLogOut.Iconimage_Selected = null;
-            this.btnLogOut.IconMarginLeft = 0;
-            this.btnLogOut.IconMarginRight = 0;
-            this.btnLogOut.IconRightVisible = true;
-            this.btnLogOut.IconRightZoom = 0D;
-            this.btnLogOut.IconVisible = true;
-            this.btnLogOut.IconZoom = 50D;
-            this.btnLogOut.IsTab = false;
-            this.btnLogOut.Location = new System.Drawing.Point(0, 497);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnLogOut.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btnLogOut.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnLogOut.selected = false;
-            this.btnLogOut.Size = new System.Drawing.Size(177, 40);
-            this.btnLogOut.TabIndex = 7;
-            this.btnLogOut.Text = "    Đăng Xuất";
-            this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Textcolor = System.Drawing.Color.White;
-            this.btnLogOut.TextFont = new System.Drawing.Font("Segoe UI", 9.75F);
             // 
             // fManagement
             // 

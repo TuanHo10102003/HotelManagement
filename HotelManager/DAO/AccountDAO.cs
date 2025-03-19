@@ -26,7 +26,7 @@ namespace HotelManager.DAO
         {
             string hashPass = HashPass(passWord);
             string query = "USP_Login @userName , @passWord";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { userName, passWord });
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { userName, hashPass });
             return data.Rows.Count>0;
         }
         internal Account LoadStaffInforByUserName(string username)

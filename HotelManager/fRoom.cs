@@ -193,7 +193,7 @@ namespace HotelManager
                 bindingNavigatorMoveFirstItem.Enabled = true;
                 bindingNavigatorMovePreviousItem.Enabled = true;
                 txbNameRoom.Text = row.Cells["colName"].Value.ToString();
-                comboBoxRoomType.SelectedIndex = (int)row.Cells["colIdRoomType"].Value - 1;
+                comboBoxRoomType.Text = row.Cells[2].Value.ToString();
                 comboBoxStatusRoom.SelectedIndex = (int)row.Cells["colIdStatus"].Value - 1;
                 Room room = new Room(((DataRowView)row.DataBoundItem).Row);
                 groupRoom.Tag = room;
@@ -322,5 +322,10 @@ namespace HotelManager
             BtnCancel_Click(sender, null);
         }
         #endregion
+
+        private void comboBoxStatusRoom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

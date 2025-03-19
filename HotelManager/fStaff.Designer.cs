@@ -433,6 +433,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(80, 40);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -680,6 +681,7 @@
             this.datepickerDateOfBirth.Size = new System.Drawing.Size(175, 29);
             this.datepickerDateOfBirth.TabIndex = 7;
             this.datepickerDateOfBirth.Value = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
+            this.datepickerDateOfBirth.onValueChanged += new System.EventHandler(this.datepickerDateOfBirth_onValueChanged);
             // 
             // label4
             // 

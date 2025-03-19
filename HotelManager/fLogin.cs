@@ -35,9 +35,9 @@ namespace HotelManager
                 fManagement f = new fManagement(txbUserName.Text);
                 f.ShowDialog();
 
-                //txbUserName.Text = String.Empty;
-                //txbPassWord.Text = String.Empty;
-                //txbUserName.Focus();
+                txbUserName.Text = String.Empty;
+                txbPassWord.Text = String.Empty;
+                txbUserName.Focus();
 
             }
             else

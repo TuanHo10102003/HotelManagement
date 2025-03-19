@@ -27,10 +27,18 @@ namespace HotelManager.DAO
         public Customer GetInfoByIdCard(string idCard)
         {
             string query = "USP_IsIdCardExists @idCard";
-            Customer customer =new Customer(DataProvider.Instance.ExecuteQuery(query, new object[] { idCard }).Rows[0]);
-            return customer;
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { idCard });
 
+            // Kiểm tra nếu không có dòng nào trong DataTable
+            if (dt.Rows.Count == 0)
+            {
+                return null; // Hoặc có thể trả về một Customer mặc định
+            }
+
+            // Nếu có dữ liệu, tạo đối tượng Customer
+            return new Customer(dt.Rows[0]);
         }
+
 
         internal bool InsertCustomer(string customerName, int idCustomerType, string idCard, string address, DateTime dateOfBirth, int phoneNumber, string sex, string nationality)
         {
