@@ -361,15 +361,47 @@ namespace HotelManager
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            totalPrice = 0;
-            Room room = flowLayoutRooms.Tag as Room;
-            AddBill(room.Id, (cbService.SelectedItem as Service).Id, int.Parse(numericUpDownCount.Value.ToString()));
-            ShowBill(room.Id);
-            numericUpDownCount.Value = 1;
+            // Kiểm tra nếu chưa chọn phòng
+            if (flowLayoutRooms.Tag == null || !(flowLayoutRooms.Tag is Room))
+            {
+                MessageBox.Show("Vui lòng chọn một phòng trước khi thêm dịch vụ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            ShowBillRoom(room.Id);
-            txbTotalPrice.Text = totalPrice.ToString("c0", new CultureInfo("vi-vn"));
+            Room room = flowLayoutRooms.Tag as Room;
+
+            // Kiểm tra nếu chưa chọn dịch vụ
+            if (cbService.SelectedItem == null || !(cbService.SelectedItem is Service))
+            {
+                MessageBox.Show("Vui lòng chọn một dịch vụ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Service selectedService = cbService.SelectedItem as Service;
+
+            // Kiểm tra số lượng hợp lệ
+            if (numericUpDownCount.Value <= 0)
+            {
+                MessageBox.Show("Số lượng dịch vụ phải lớn hơn 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                totalPrice = 0;
+                AddBill(room.Id, selectedService.Id, (int)numericUpDownCount.Value);
+                ShowBill(room.Id);
+                numericUpDownCount.Value = 1;
+
+                ShowBillRoom(room.Id);
+                txbTotalPrice.Text = totalPrice.ToString("c0", new CultureInfo("vi-vn"));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
 
         private void btnClose__Click(object sender, EventArgs e)

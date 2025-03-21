@@ -32,12 +32,29 @@ namespace HotelManager
         private void LoadFullBill(DataTable table)
         {
             BindingSource source = new BindingSource();
-            ChangePrice(table);
+            ChangePrice(table); // Cập nhật giá tiền nếu có logic thay đổi giá
+
             source.DataSource = table;
             dataGridViewBill.DataSource = source;
             bindingBill.BindingSource = source;
-            comboboxID.DataSource = source;
 
+            // Xóa Binding cũ để tránh lỗi hiển thị
+            comboboxID.DataBindings.Clear();
+
+            // Kiểm tra nếu có dữ liệu trong bảng
+            if (table.Rows.Count > 0)
+            {
+                comboboxID.DisplayMember = "BillID";  // Hiển thị BillID trên combobox
+                comboboxID.ValueMember = "BillID";    // Giá trị chọn cũng là BillID
+                comboboxID.DataSource = source;
+                comboboxID.SelectedIndex = 0; // Chọn item đầu tiên sau khi load dữ liệu
+            }
+            else
+            {
+                comboboxID.DataSource = null; // Nếu không có dữ liệu, tránh lỗi hiển thị
+            }
+
+            // Xóa tất cả Binding trước khi thêm mới
             txbDateCreate.DataBindings.Clear();
             txbName.DataBindings.Clear();
             txbPrice.DataBindings.Clear();
@@ -46,6 +63,7 @@ namespace HotelManager
             txbDiscount.DataBindings.Clear();
             txbFinalPrice.DataBindings.Clear();
 
+            // Thêm Binding mới cho các TextBox
             txbDateCreate.DataBindings.Add("Text", source, "DateOfCreate");
             txbName.DataBindings.Add("Text", source, "roomName");
             txbPrice.DataBindings.Add("Text", source, "totalPrice");
@@ -53,7 +71,13 @@ namespace HotelManager
             txbUser.DataBindings.Add("Text", source, "StaffSetUp");
             txbDiscount.DataBindings.Add("Text", source, "discount");
             txbFinalPrice.DataBindings.Add("Text", source, "finalprice");
+
+            if (table.Rows.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
 
         #endregion
 
@@ -75,17 +99,39 @@ namespace HotelManager
         }
         private void BtnSeenBill_Click(object sender, EventArgs e)
         {
-            if (comboboxID.Text != string.Empty)
+            // Kiểm tra nếu combobox rỗng
+            if (string.IsNullOrWhiteSpace(comboboxID.Text))
             {
+                MessageBox.Show("Vui lòng chọn hoặc nhập mã hóa đơn hợp lệ!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Kiểm tra xem comboboxID có phải số hợp lệ không
+            if (!int.TryParse(comboboxID.Text, out int billID))
+            {
+                MessageBox.Show("Mã hóa đơn không hợp lệ! Vui lòng nhập số.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // Kiểm tra trạng thái phòng trước khi hiển thị hóa đơn
                 if (!txbStatusRoom.Text.Contains("Ch"))
                 {
-                    fPrintBill.SetPrintBill(int.Parse(comboboxID.Text), txbDateCreate.Text);
+                    fPrintBill.SetPrintBill(billID, txbDateCreate.Text);
                     fPrintBill.ShowDialog();
                 }
                 else
-                    MessageBox.Show("Hoá đơn chưa thanh toán\nBạn không có quyền truy cập", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                {
+                    MessageBox.Show("Hóa đơn chưa thanh toán\nBạn không có quyền truy cập", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         #endregion
 
         #region Click

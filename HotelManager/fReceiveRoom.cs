@@ -119,15 +119,18 @@ namespace HotelManager
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            if (txbRoomName.Text != string.Empty && txbRoomTypeName.Text != string.Empty && txbFullName.Text != string.Empty && txbIDCard.Text != string.Empty && txbDateCheckIn.Text != string.Empty && txbDateCheckOut.Text != string.Empty && txbAmountPeople.Text != string.Empty && txbPrice.Text != string.Empty)
+            try
             {
-                //fAddCustomerInfo fAddCustomerInfo = new fAddCustomerInfo();
-                //fAddCustomerInfo.ShowDialog();
+                fAddCustomerInfo fAddCustomerInfo = new fAddCustomerInfo();
+                fAddCustomerInfo.ShowDialog();
                 this.Show();
             }
-            else
-                MessageBox.Show("Vui lòng nhập lại đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void btnReceiveRoom_Click(object sender, EventArgs e)
         {
