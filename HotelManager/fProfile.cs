@@ -78,7 +78,7 @@ namespace HotelManager
                 }
                 else
                 {
-                    MessageBox.Show( "Mật khẩu mới không hợp lệ.\nVui lòng nhập lại.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show( "Mật khẩu không khớp với xác nhận mật khẩu.\nVui lòng nhập lại.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txbNewPass.Text = txbReNewPass.Text = String.Empty;
                 }
             }

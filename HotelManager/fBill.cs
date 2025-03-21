@@ -49,7 +49,7 @@ namespace HotelManager
             txbDateCreate.DataBindings.Add("Text", source, "DateOfCreate");
             txbName.DataBindings.Add("Text", source, "roomName");
             txbPrice.DataBindings.Add("Text", source, "totalPrice");
-            txbStatusRoom.DataBindings.Add("Text", source, "Name");
+            txbStatusRoom.DataBindings.Add("Text", source, "StatusBill");
             txbUser.DataBindings.Add("Text", source, "StaffSetUp");
             txbDiscount.DataBindings.Add("Text", source, "discount");
             txbFinalPrice.DataBindings.Add("Text", source, "finalprice");
@@ -155,5 +155,14 @@ namespace HotelManager
         }
         #endregion
 
+        private void txbCustomerName_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewBill_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -65,7 +65,7 @@ namespace HotelManager.DAO
         }
         internal DataTable LoaddFullBill()
         {
-            string query = "USP_LoadFullBill";
+            string query = "USP_LoadFUllBill";
             return DataProvider.Instance.ExecuteQuery(query);
         }
 

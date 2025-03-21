@@ -45,6 +45,7 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txbCustomerName = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.btnSeenBill = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnCLose1 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label6 = new System.Windows.Forms.Label();
@@ -179,6 +180,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(40, 22);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -222,6 +224,25 @@
             this.groupBox2.TabIndex = 60;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức Năng";
+            // 
+            // txbCustomerName
+            // 
+            this.txbCustomerName.BorderColorFocused = System.Drawing.Color.SeaGreen;
+            this.txbCustomerName.BorderColorIdle = System.Drawing.Color.SeaGreen;
+            this.txbCustomerName.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
+            this.txbCustomerName.BorderThickness = 1;
+            this.txbCustomerName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txbCustomerName.Enabled = false;
+            this.txbCustomerName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbCustomerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txbCustomerName.isPassword = false;
+            this.txbCustomerName.Location = new System.Drawing.Point(117, 350);
+            this.txbCustomerName.Margin = new System.Windows.Forms.Padding(0);
+            this.txbCustomerName.Name = "txbCustomerName";
+            this.txbCustomerName.Size = new System.Drawing.Size(175, 29);
+            this.txbCustomerName.TabIndex = 62;
+            this.txbCustomerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txbCustomerName.OnValueChanged += new System.EventHandler(this.txbCustomerName_OnValueChanged);
             // 
             // btnSeenBill
             // 
@@ -671,6 +692,7 @@
             // 
             this.groupBox1.Controls.Add(this.dataGridViewBill);
             this.groupBox1.Controls.Add(this.bindingBill);
+            this.groupBox1.Controls.Add(this.txbCustomerName);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox1.Location = new System.Drawing.Point(418, 52);
@@ -735,6 +757,7 @@
             this.dataGridViewBill.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewBill.Size = new System.Drawing.Size(769, 390);
             this.dataGridViewBill.TabIndex = 28;
+            this.dataGridViewBill.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBill_CellContentClick);
             // 
             // colID
             // 
@@ -923,5 +946,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txbCustomerName;
     }
 }

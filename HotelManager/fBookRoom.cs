@@ -191,13 +191,31 @@ namespace HotelManager
 
         private void btnDetails_Click(object sender, EventArgs e)
         {
-            int idBookRoom = (int)dataGridViewBookRoom.SelectedRows[0].Cells[0].Value;
-            string idCard= dataGridViewBookRoom.SelectedRows[0].Cells[2].Value.ToString();
-            fBookRoomDetails f = new fBookRoomDetails(idBookRoom, idCard);
-            f.ShowDialog();
-            Show();
-            LoadListBookRoom();
+            // Kiểm tra nếu không có dòng nào được chọn
+            if (dataGridViewBookRoom.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một đơn đặt phòng để xem chi tiết!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Thoát khỏi sự kiện nếu không có dữ liệu
+            }
+
+            try
+            {
+                int idBookRoom = (int)dataGridViewBookRoom.SelectedRows[0].Cells[0].Value;
+                string idCard = dataGridViewBookRoom.SelectedRows[0].Cells[2].Value.ToString();
+
+                // Mở form chi tiết đặt phòng
+                fBookRoomDetails f = new fBookRoomDetails(idBookRoom, idCard);
+                f.ShowDialog();
+
+                Show(); // Đảm bảo form chính hiển thị lại
+                LoadListBookRoom(); // Cập nhật lại danh sách đặt phòng sau khi đóng form chi tiết
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void txbPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {

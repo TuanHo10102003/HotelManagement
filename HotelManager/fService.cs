@@ -167,50 +167,50 @@ namespace HotelManager
         
         private void UpdateService()
         {
-            //if (comboboxID.Text == string.Empty)
-            //    MessageBox.Show( "Dịch vụ không tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            //else
-            //if (!fCustomer.CheckFillInText(new Control[] { txbName, comboBoxServiceType, txbPrice }))
-            //{
-            //    MessageBox.Show( "Không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            //else
-            //{
-            //    Service servicePre = groupService.Tag as Service;
-            //    try
-            //    {
-            //        Service serviceNow = GetServiceNow();
-            //        if (serviceNow.Equals(servicePre))
-            //        {
-            //            MessageBox.Show( "Bạn chưa thay đổi dữ liệu", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //        }
-            //        else
-            //        {
-            //            bool check = ServiceDAO.Instance.UpdateService(serviceNow, servicePre);
-            //            if (check)
-            //            {
-            //                MessageBox.Show( "Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //                groupService.Tag = serviceNow;
-            //                if (btnCancel.Visible == false)
-            //                {
-            //                    int index = dataGridViewService.SelectedRows[0].Index;
-            //                    LoadFullService(GetFullService());
-            //                    comboboxID.SelectedIndex = index;
-            //                }
-            //                else
-            //                    BtnCancel_Click(null, null);
-            //            }
-            //            else
-            //                MessageBox.Show( "Dịch vụ không tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            //        }
-            //    }
-            //    catch
-            //    {
-            //        MessageBox.Show( "Lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //}
-        }
+            if (comboboxID.Text == string.Empty)
+                MessageBox.Show("Dịch vụ không tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            else
+            if (!fCustomer.CheckFillInText(new Control[] { txbName, comboBoxServiceType, txbPrice }))
+            {
+                MessageBox.Show("Không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                Service servicePre = groupService.Tag as Service;
+                try
+                {
+                    Service serviceNow = GetServiceNow();
+                    if (serviceNow.Equals(servicePre))
+                    {
+                        MessageBox.Show("Bạn chưa thay đổi dữ liệu", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        bool check = ServiceDAO.Instance.UpdateService(serviceNow, servicePre);
+                        if (check)
+                        {
+                            MessageBox.Show("Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            groupService.Tag = serviceNow;
+                            if (btnCancel.Visible == false)
+                            {
+                                int index = dataGridViewService.SelectedRows[0].Index;
+                                LoadFullService(GetFullService());
+                                comboboxID.SelectedIndex = index;
+                            }
+                            else
+                                BtnCancel_Click(null, null);
+                        }
+                        else
+                            MessageBox.Show("Dịch vụ không tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                    }
+            }
         private void Search()
         {
             LoadFullService(GetSearchService());

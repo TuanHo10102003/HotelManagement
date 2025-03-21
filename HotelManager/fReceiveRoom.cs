@@ -183,10 +183,29 @@ namespace HotelManager
 
         private void btnDetails_Click(object sender, EventArgs e)
         {
-            fReceiveRoomDetails f = new fReceiveRoomDetails((int)dataGridViewReceiveRoom.SelectedRows[0].Cells[0].Value);
-            f.ShowDialog();
-            Show();
-            LoadReceiveRoomInfo();
+            // Kiểm tra nếu không có dòng nào được chọn
+            if (dataGridViewReceiveRoom.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một đơn nhận phòng để xem chi tiết!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Thoát khỏi sự kiện nếu không có dữ liệu
+            }
+
+            try
+            {
+                int idReceiveRoom = (int)dataGridViewReceiveRoom.SelectedRows[0].Cells[0].Value;
+
+                // Mở form chi tiết nhận phòng
+                fReceiveRoomDetails f = new fReceiveRoomDetails(idReceiveRoom);
+                f.ShowDialog();
+
+                Show(); // Đảm bảo form chính hiển thị lại
+                LoadReceiveRoomInfo(); // Cập nhật lại danh sách nhận phòng sau khi đóng form chi tiết
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
     }
 }
